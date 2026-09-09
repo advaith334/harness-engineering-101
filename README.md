@@ -5,7 +5,7 @@
 Take a text-to-text LLM as a frozen API and everything that makes it useful lives in the scaffolding
 around it: how context is assembled, how calls are sequenced, how tools and memory are wired in, and
 who holds control of the loop. This repo is a catalogue of those scaffolds — each one a single short
-Python file against the Mistral API that you can read in 30 seconds and paste under time pressure.
+Python file against the Mistral API that you can read in 30 seconds and adapt.
 
 Every folder has a raw-SDK `main.py` that runs with nothing but an API key, plus a README covering
 *when to reach for it*, *how it works*, and *how it fails*. Framework versions appear as a second
@@ -67,15 +67,15 @@ python 08-react-tools/main.py
 | [17](./17-mistral-agents-api/) | **Mistral Agents API** | The first-party stack: hosted RAG, server-side memory, hosted tools, handoffs |
 
 Also: **[FRAMEWORKS.md](./FRAMEWORKS.md)** — LangGraph, CrewAI, Pydantic AI and the 2026 landscape,
-with a decision rule and what to say about it.
+with a decision rule for when each one earns its place.
 
 ---
 
-## They ask X → you build Y
+## Requirement → topology
 
-The live classifier. Read the ask, find the row, start typing.
+Read the requirement, find the row, start there.
 
-| What they say | Build | Then, if there's time |
+| What you're asked for | Start with | Escalate to |
 |---|---|---|
 | "Answer questions over our docs / wiki / tickets" | [05](./05-rag-naive/) | [06](./06-rag-advanced/) when accuracy falls short, [07](./07-agentic-rag/) for multi-part questions |
 | "Extract / classify / turn this into a record" | [01](./01-structured-output/) | [03](./03-map-reduce/) to run it over many |
@@ -111,15 +111,15 @@ degrades — multi-agent's actual benefit is **context isolation**, not intellig
 | Long-running, many contributors, must resume | [20 Blackboard](./20-blackboard/) | Topology is the data; agents stay decoupled |
 | Ordered and fully known in advance | [02 Chaining](./02-prompt-chaining/) | Not a multi-agent problem. Don't |
 
-Nested supervisors ("hierarchical teams") and no-controller peer-to-peer networks exist; name them,
-don't reach for them.
+Nested supervisors ("hierarchical teams") and no-controller peer-to-peer networks exist too, but
+both are rarely the right first reach.
 
 ---
 
 ## The three axes
 
 Every topology above lands somewhere on three axes, and that placement predicts its cost,
-reliability, and blast radius. This is the spine of the 10-minute presentation.
+reliability, and blast radius. It's the most useful lens for comparing them.
 
 **1. Control flow — who decides what happens next?**
 `author-defined` (chains, pipelines, routers: deterministic, testable, bounded) →
@@ -164,5 +164,5 @@ flowchart TB
 ```
 
 The topology of a real harness is a **stack**, not a choice — and every box above is a folder in this
-repo. Folder 07 is literally folder 05 plus folder 08; say that out loud, because noticing the
-composition is the thing being tested.
+repo. Folder 07 is literally folder 05 plus folder 08 — recognizing where a topology is just a
+composition of two simpler ones is most of what this catalogue is for.

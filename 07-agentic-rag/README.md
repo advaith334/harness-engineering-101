@@ -35,8 +35,8 @@ Trigger phrases: *"it should figure out where to look"*, *"across our different 
    sub-question, search again if results look irrelevant."*
 3. Model stops calling tools → it's answering → return.
 
-**This folder is literally 05 + 08.** Being able to say that out loud — that agentic RAG is a
-composition, not a new thing — is the point of the exercise.
+**This folder is literally 05 + 08.** Agentic RAG isn't a new mechanism; it's naive RAG's `search()`
+wrapped in a tool schema and dropped into the ReAct loop. Recognizing that is the point.
 
 ## Cost / latency / failure modes
 3–8 calls, unpredictable, which is the tradeoff for the flexibility. Failure modes: **over-searching**

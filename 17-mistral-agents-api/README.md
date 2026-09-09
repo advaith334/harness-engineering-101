@@ -1,7 +1,7 @@
 # 17 · The Mistral Agents API (first-party)
 
-**Read this folder first if the interview is at Mistral.** Everything the other folders build by
-hand, their platform hosts — and using it shows you know their product, not just the general pattern.
+Everything the other folders build by hand, Mistral's platform will host for you. If you're building
+on Mistral, this folder is the shortest path from nothing to a working stateful agent.
 
 ## What it is
 A stateful, server-side agent runtime. You create `Agent` objects with tools attached, then drive
@@ -21,7 +21,7 @@ flowchart TB
     CV --> OUT["response.outputs — your trace"]
 ```
 
-*Everything except `function` runs on their side. You trade visibility for speed — usually the right trade in a 40-minute build.*
+*Everything except `function` runs on their side. You trade visibility for speed — usually the right trade until retrieval quality becomes the bottleneck.*
 
 ## The mapping — what it replaces
 | Built by hand in | Hosted equivalent |
@@ -36,9 +36,10 @@ flowchart TB
 | [10](../10-multi-agent-supervisor/) multi-agent | `agents.update(handoffs=[...])` |
 
 ## When to reach for it
-- The clock is running and the ask is *"an assistant that knows our docs and remembers me."*
+- The requirement is *"an assistant that knows our docs and remembers me"* and you want it working
+  today rather than tuned.
 - You want web search, code execution, or image generation without building any of it.
-- You're interviewing at Mistral. Reaching for their platform is the point.
+- You want versioned agents and a server-side audit trail without building either.
 
 ## When to build it by hand instead
 - **Quality is what's being evaluated.** You can't see retrieval scores, can't change chunking,
@@ -46,9 +47,8 @@ flowchart TB
 - **You need the state.** Server-side history isn't yours to inspect, migrate, or diff.
 - **Portability matters.** This is the one folder that doesn't transfer to another provider.
 
-Saying *"I'd use the hosted document_library to get to an answer today, and swap in my own hybrid +
-rerank pipeline once we have an eval showing retrieval is the bottleneck"* is the strongest version
-of this answer.
+The pragmatic path is usually both: start on the hosted `document_library` to get answers flowing,
+then swap in your own hybrid + rerank pipeline once an eval shows retrieval is the bottleneck.
 
 ## Tool types available on `agents.create`
 `web_search` · `web_search_premium` · `code_interpreter` · `image_generation` ·

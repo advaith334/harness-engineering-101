@@ -38,7 +38,7 @@ There is no vector database here on purpose. Brute-force cosine over a list is e
 to ~10k chunks. Reach for pgvector/Qdrant when you outgrow that, not before.
 
 ## Cost / latency / failure modes
-2 calls (embed + generate). The failure modes are all in step 2, and they're worth naming out loud:
+2 calls (embed + generate). The failure modes are all in step 2, and all three are worth knowing:
 - **Chunking** decides everything. Too small loses context, too big dilutes the embedding.
 - **Vocabulary mismatch** — the user says "money back", the doc says "refund". Dense embeddings
   usually bridge this; exact IDs, error codes and product names they often don't. That's what

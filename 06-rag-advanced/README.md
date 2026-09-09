@@ -20,8 +20,8 @@ flowchart LR
 
 ## When to reach for it
 **Not first.** Build [05](../05-rag-naive/), find where it fails, then add exactly the refinement
-that fixes that failure. Being able to say *"I'd start naive and add reranking only if eval shows
-precision is the problem"* is worth more in an interview than shipping all three unprompted.
+that fixes that failure. Adding all three up front buys latency and complexity you may not need —
+and leaves you unable to say which one actually helped.
 
 The specific symptoms each fix addresses:
 | Symptom | Fix |

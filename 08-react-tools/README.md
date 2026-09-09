@@ -57,7 +57,7 @@ forever — detect and break), **context bloat** on long runs (see [13-memory](.
 - `main.py` — the loop by hand. ~20 lines. Know this one cold; it ports to any provider.
 - `main_sdk_runner.py` — Mistral's built-in runner: `RunContext` + `conversations.run_async`.
   Derives tool schemas from your type hints and docstrings, runs the loop, returns a full trace.
-  Faster to write; use it when the clock is running.
+  Faster to write; use it when you'd rather not own the loop.
 
 ## Composes with
 Everything downstream. [07-agentic-rag](../07-agentic-rag/) is this loop with a retrieval tool;

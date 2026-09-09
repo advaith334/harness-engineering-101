@@ -1,11 +1,12 @@
 # Agent Frameworks — the 2026 landscape
 
-Researched September 2026. The short version: **for a 40-minute build, write the loop yourself.**
-Every folder in this repo has a raw-SDK `main.py` for that reason. Frameworks are worth reaching for
-when they solve a problem you actually have — durability, checkpointing, approvals — and are a
-liability when they're just an extra thing to debug in front of an interviewer.
+Researched September 2026. The short version: **write the loop yourself until a framework earns its
+place.** Every folder in this repo has a raw-SDK `main.py` for that reason. Frameworks are worth
+reaching for when they solve a problem you actually have — durability, checkpointing, approvals —
+and are a liability when they're just another layer to debug.
 
-Being able to *name* the landscape and say why you didn't use it is worth more than using it.
+Knowing the landscape well enough to explain why you *skipped* a framework matters as much as
+adopting one.
 
 ---
 
@@ -19,8 +20,8 @@ Stateful conversations (server-side memory), hosted tools (`web_search`, `code_i
 `handoffs=[...]` for multi-agent, `guardrails=[...]`, and a built-in local runner
 (`RunContext` + `conversations.run_async`) with tool-confirmation HITL.
 
-- **Wins when:** you're on Mistral, you want memory/RAG/tools without building them, and you want
-  the platform fluency to show. **In a Mistral interview this is the highest-signal choice.**
+- **Wins when:** you're on Mistral and want memory, RAG and tools without building any of them.
+  Shortest path from nothing to a working stateful agent.
 - **Costs you:** visibility (no retrieval scores, no rerank hook) and portability.
 
 ```python
@@ -74,7 +75,7 @@ Example: [10/main_crewai.py](./10-multi-agent-supervisor/main_crewai.py).
 
 ---
 
-## Named, but off-path for a Mistral round
+## Named, but off-path if you're building on Mistral
 
 | Framework | One line | Would win if |
 |---|---|---|
@@ -97,9 +98,9 @@ Also worth knowing as *protocols* rather than frameworks: **MCP** for tools
 Is the task one LLM call, or a fixed sequence of them?
     -> No framework. Write the calls. (folders 01-06)
 
-Is it an agent loop, in an interview, under time pressure?
+Is it a straightforward agent loop?
     -> Raw SDK loop (folder 08) or Mistral's RunContext runner.
-       ~20 lines, zero install risk, and you can debug it live.
+       ~20 lines, no dependencies, and every message is visible.
 
 Does the ask involve durability, resumability, or mid-run human approval?
     -> LangGraph. That checkpointer + interrupt() combination is the real reason it exists.
@@ -114,13 +115,12 @@ Is the agent a typed component inside a larger Python application?
     -> Pydantic AI.
 ```
 
-## What to say out loud in the presentation
+## Rule of thumb
 
-> "I default to writing the loop against the raw SDK, because the loop is 20 lines and I want to be
-> able to see and debug every message. I reach for a framework when it gives me something I'd
-> otherwise have to build — LangGraph's checkpointer and `interrupt()` for durable, approval-gated
-> runs, or Mistral's Agents API when hosted RAG and server-side memory get me there faster. What I
-> don't do is adopt a framework for the agent loop itself; that's the part I most need to understand."
+Default to writing the loop against the raw SDK: it's about 20 lines, and every message stays
+visible and debuggable. Reach for a framework when it gives you something you'd otherwise have to
+build — LangGraph's checkpointer and `interrupt()` for durable, approval-gated runs, or Mistral's
+Agents API when hosted RAG and server-side memory get you there faster.
 
-That answer demonstrates you know all three options and have a reason for the one you picked, which
-is the actual thing being tested.
+What's rarely worth it is adopting a framework for the agent loop itself. That loop is the part you
+most need to understand, and it's the part that costs the least to own.

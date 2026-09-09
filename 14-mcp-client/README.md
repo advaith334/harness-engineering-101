@@ -28,7 +28,7 @@ sequenceDiagram
 - The capability you need **already has an MCP server** (GitHub, Slack, Postgres, filesystem,
   Google Drive, Sentry, Linear…). Don't rewrite it as a function.
 - You want the integration reusable across agents, or maintained by someone else.
-- The interviewer says *"MCP"*, *"connect it to our tools"*, *"plug into our systems"*.
+- The requirement mentions *"MCP"*, *"connect it to our tools"*, *"plug into our systems"*.
 
 **When not to:** a single function you own. Wrapping `get_weather()` in an MCP server buys you
 a subprocess and a handshake for nothing. MCP is an *integration boundary*, not a tool abstraction.
@@ -42,7 +42,7 @@ a subprocess and a handshake for nothing. MCP is an *integration boundary*, not 
    the agent; it only changes where the tools came from.
 5. **Route calls** — `tools/call` back over the transport, feed the result in as a tool message.
 
-## The security point — make this one out loud
+## The security point
 Two boundaries matter, and both are in the code here:
 - **Scope the server.** The filesystem server is launched with one directory argument. The agent
   cannot see outside it.

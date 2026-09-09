@@ -39,7 +39,7 @@ it's the one where the engineering stops being about prompts.
 6. **Log reads and writes differently.** The `WRITE`/`read` prefix in the trace is not decoration;
    it's the audit log you'll want the first time something goes wrong.
 
-## The design point to say out loud
+## The design point
 > "The LLM part of an action agent is small. The engineering is idempotency, retries, pagination,
 > auth, and knowing which calls are reversible."
 

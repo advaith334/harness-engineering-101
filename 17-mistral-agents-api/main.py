@@ -10,8 +10,8 @@ Everything the earlier folders build by hand, Mistral will host for you:
     folder 15     code execution -> the `code_interpreter` tool, sandboxed
 
 Tradeoff, stated plainly: you trade control for speed. You can't see the retrieval
-scores, can't rerank, can't inspect the loop. For a 40-minute MVP that's usually the
-right trade — and it demonstrates fluency with their platform, which is the point.
+scores, can't rerank, can't inspect the loop. For an MVP that's usually the right
+trade; revisit it when retrieval quality becomes the thing you're optimizing.
 """
 
 import json

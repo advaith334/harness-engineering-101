@@ -25,7 +25,7 @@ likely right answer to *"build a customer service agent"*.
 Trigger phrases: *"triage"*, *"escalate"*, *"first-line then specialist"*, *"route to the right team"*,
 *"intake process"*, *"tier 1 / tier 2"*.
 
-**Handoff vs. supervisor** — the distinction to state out loud:
+**Handoff vs. supervisor** — the distinction that decides which one you want:
 | | [10 Supervisor](../10-multi-agent-supervisor/) | 18 Handoff |
 |---|---|---|
 | Control | Fans out, then returns to the lead | Moves forward, doesn't come back |

@@ -36,7 +36,7 @@ agent writing to a plan file: **working memory, made shared**.
 - **Many contributors** where you don't want an N² message graph.
 - **Resumability** — because the board is plain data, persist it and the controller picks up exactly
   where it stopped. This is the cheapest durable-execution story there is.
-- The interviewer asks *"what if it crashes halfway through?"*
+- You need a real answer to *"what happens if it crashes halfway through?"*
 
 Trigger phrases: *"agents collaborating on a document"*, *"build up an analysis"*, *"it runs for a
 while"*, *"resumable"*, *"shared context between agents"*.

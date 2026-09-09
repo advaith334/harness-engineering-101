@@ -31,9 +31,9 @@ flowchart TB
 *Solid diamonds are code and they block. The dashed path is what saves you when everything else fails.*
 
 ## When to reach for it
-Anything customer-facing, anything with side effects, and *always* when the interviewer asks "how do
-you know it works?" — the answer is a judge, run offline over a fixed set of cases. Bringing this up
-unprompted is one of the clearest signals of production experience you can give.
+Anything customer-facing, and anything with side effects. It's also the answer to "how do you know
+it works?" — a judge run offline over a fixed set of cases is what turns that from a feeling into a
+number you can track across changes.
 
 Trigger phrases: *"how do you evaluate"*, *"how do you stop it hallucinating"*, *"it can't promise
 things"*, *"PII"*, *"prompt injection"*, *"what's your eval"*.

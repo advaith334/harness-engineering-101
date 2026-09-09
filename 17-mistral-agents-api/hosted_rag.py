@@ -4,8 +4,8 @@ This replaces folders 05 and 06 entirely: no chunking, no embedding calls, no ve
 store, no reranker. Mistral ingests and retrieves.
 
 Use it when you need RAG working in ten minutes. Build 05/06 by hand when you need
-control over chunk boundaries, hybrid search, or reranking — i.e. when quality is the
-thing being evaluated rather than the demo.
+control over chunk boundaries, hybrid search, or reranking — i.e. when retrieval
+quality is the thing you're optimizing.
 """
 
 import os

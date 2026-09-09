@@ -5,7 +5,7 @@ A lead agent decomposes the goal, delegates sub-tasks to specialist worker agent
 their reports. The topology is now the *communication graph between agents*.
 
 A worker is not a magic entity. It is **a system prompt + a subset of tools + its own message
-history**. That's it. Say this out loud in the interview — it's the thing most people mystify.
+history**. That's it — worth stating plainly, because it's the thing most people mystify.
 
 ```mermaid
 flowchart TB
@@ -57,11 +57,11 @@ every worker's input and output or you will be lost.
 | `main_handoffs.py` | Mistral Agents API, **sequential delegation** | The next specialist depends on the last one's findings; you want first-party tracing and hosted tools |
 | `main_langgraph.py` | LangGraph, workers-as-tools | You need checkpointing, resumability, or approval gates |
 
-`main_handoffs.py` is the highest-signal one for a Mistral round: `agents.update(handoffs=[...])`
+`main_handoffs.py` is the least code of the three: `agents.update(handoffs=[...])`
 declares the topology in a single line, and `handoff_execution="client"` hands control back to you
 at each hop so you can log, approve, or override.
 
-## Other multi-agent shapes worth naming (don't build them unprompted)
+## Other multi-agent shapes worth knowing (rarely the right first reach)
 **Sequential handoff** (a triage line), **group chat / debate** (agents argue, surfacing errors one
 instance would miss), **blackboard** (agents read/write shared state rather than messaging),
 **hierarchical teams** (supervisors of supervisors), **A2A protocols** (agents discovering each other
