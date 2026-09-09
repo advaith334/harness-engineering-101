@@ -37,6 +37,16 @@ Trigger phrases: *"research across multiple sources"*, *"a team of agents"*, *"o
 Do **not** reach for it because multi-agent sounds impressive. One good agent beats three
 coordinating badly, and coordination overhead is real.
 
+**Grounded examples**
+- **Deep-research products** — the lead decomposes a question into sub-questions, parallel workers
+  research each, the lead synthesizes and cites. The parallelism is why these return in minutes
+  rather than an hour.
+- **M&A and investment due diligence** — a financial worker, a legal worker and a technical worker
+  on the same target company, each with its own data sources, then one memo.
+- **Incident response** — a logs agent, a metrics agent and a deploys agent run concurrently on the
+  same alert; the supervisor reconciles them and flags where they disagree.
+- **Competitive analysis** — one worker per competitor, identical brief, one comparison table out.
+
 ## How it works
 1. **Delegate** — supervisor emits JSON assignments, only for specialists that can actually help.
 2. **Execute in parallel** — `ThreadPoolExecutor`, because these sub-tasks are independent. If they

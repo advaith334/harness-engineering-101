@@ -38,6 +38,17 @@ number you can track across changes.
 Trigger phrases: *"how do you evaluate"*, *"how do you stop it hallucinating"*, *"it can't promise
 things"*, *"PII"*, *"prompt injection"*, *"what's your eval"*.
 
+**Grounded examples**
+- **Regulated support bots** (banking, insurance, healthcare) — the bot must never promise a refund,
+  quote a rate, or give medical advice. That's a deterministic output check, not a prompt hope.
+- **Prompt-injection defence on anything with retrieval or tools** — retrieved documents and tool
+  results are attacker-controlled text. The input guardrails in `main.py` are the minimum viable
+  version.
+- **Regression testing prompt changes** — an offline judge over a fixed case set is how you find out
+  that "improving" the system prompt broke 12% of previously-correct answers.
+- **PII redaction before egress** — strip emails, card numbers and account IDs before the text
+  leaves your process, which is often a contractual requirement rather than a nice-to-have.
+
 ## How it works
 1. **Input guardrails** — length, injection phrases. Blocking, before any spend.
 2. **Redact** PII before it leaves your process.

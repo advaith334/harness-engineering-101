@@ -24,6 +24,16 @@ genuinely can't be known ahead of time.
 
 Trigger phrases: *"take X and turn it into Y"*, *"first ... then ... finally"*, *"generate a report from"*.
 
+**Grounded examples**
+- **Meeting notes products** (Otter, Fireflies, Granola) — transcript → decisions and action items
+  → owner/due-date table → a digest email. Four narrow steps, each independently checkable.
+- **Contract review** — clause extraction → risk classification per clause → a client-facing memo.
+  The middle step must never see the raw contract again, or it re-reads and re-hallucinates.
+- **Localization pipelines** — translate → adapt idioms and units → verify against a terminology
+  glossary. The glossary check is a deterministic gate between LLM steps.
+- **Job description generation** — role intake form → competency list → the posting, with a
+  bias-language check wedged in between.
+
 ## How it works
 1. **Extract** — pull raw facts, explicitly forbidding inference.
 2. **Structure** — reshape into a table. Only sees step 1's output, so it can't re-hallucinate.

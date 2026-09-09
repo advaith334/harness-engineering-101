@@ -29,6 +29,16 @@ available: it keeps each downstream context small.
 Trigger phrases: *"handle different kinds of"*, *"triage"*, *"support assistant"*, *"multi-domain"*,
 *"we need to keep costs down"*.
 
+**Grounded examples**
+- **Support inbox triage** (Intercom Fin, Zendesk AI) — billing, bug, sales and "just saying
+  thanks" each get a different prompt, a different tone, and different escalation rules.
+- **Model cascade in consumer chat apps** — trivial turns go to a small fast model, hard ones
+  escalate. At consumer volume this is the single largest cost lever available.
+- **IDE assistants** — "explain this", "write a test", "refactor" and "find the bug" are four
+  different system prompts behind one keyboard shortcut.
+- **Banking and telecom IVR replacement** — route to balance-enquiry, dispute, or human, where
+  sending a dispute down the balance path is a compliance problem, not just a bad answer.
+
 ## How it works
 1. One call to a **small** model, JSON mode, temperature 0 — its only job is to emit a label.
 2. Look the label up in a dispatch dict. **Always have a fallback** for an out-of-set label.

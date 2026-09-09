@@ -30,6 +30,17 @@ The specific symptoms each fix addresses:
 | Misses on error codes, IDs, product names, exact strings | **Hybrid search** |
 | Right chunk is retrieved but buried among 8 irrelevant ones | **Reranking** |
 
+**Grounded examples**
+- **E-commerce and hardware support** — the question is "what does E1004 mean?" or a bare SKU.
+  Dense embeddings have nothing to grip; keyword search carries the retrieval. This is the single
+  clearest case for hybrid.
+- **Legal and medical retrieval** — precision matters more than recall, and a wrong-but-plausible
+  passage is worse than no passage. Cross-encoder reranking is standard practice here.
+- **Enterprise wiki search** — employees say "expenses policy", the doc is titled "T&E Guidelines
+  FY26". Query rewriting bridges the vocabulary gap between how people ask and how docs are written.
+- **Multi-tenant SaaS knowledge bases** — thousands of small corpora where you can't hand-tune
+  chunking per customer, so retrieval quality has to come from the pipeline.
+
 ## How it works
 1. **HyDE** — questions and answers don't sit near each other in embedding space. So generate a
    *hypothetical answer* and embed that instead. It lands much closer to the real passage.

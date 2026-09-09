@@ -30,6 +30,17 @@ this takes depends on what it finds."* If you *can* know the sequence, use
 Trigger phrases: *"look it up and then"*, *"do X for me"*, *"call our API"*, *"it should figure out"*,
 *anything where a step's existence depends on a previous step's result*.
 
+**Grounded examples**
+- **Coding agents** (Claude Code, Cursor's agent mode, Copilot Workspace) — read a file, run the
+  tests, edit, run them again. The number of steps depends entirely on what the tests say, which is
+  exactly why it can't be a fixed pipeline.
+- **Ops and observability bots** — check the dashboard, query the logs, look at recent deploys,
+  then answer "why is checkout slow?"
+- **Travel and booking assistants** — check availability and price before recommending anything,
+  because guessing either is worse than being slow.
+- **Data-analysis chat** — inspect the schema, run a query, notice the result is empty, fix the
+  filter, re-run. Self-correction from an error message is the whole value.
+
 ## How it works
 1. Send messages + tool schemas with `tool_choice="auto"`.
 2. If `msg.tool_calls` is empty, the model is answering — **that's the exit condition**.

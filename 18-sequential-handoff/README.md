@@ -33,6 +33,16 @@ Trigger phrases: *"triage"*, *"escalate"*, *"first-line then specialist"*, *"rou
 | Who answers | The supervisor synthesizes | Whichever agent is holding the case |
 | Failure shape | Contradictory workers | Infinite ping-pong between stages |
 
+**Grounded examples**
+- **Telecom and airline support** — triage → billing → retention, where the retention stage exists
+  precisely because the billing stage said no and the customer is now angry. That escalation path is
+  the business process, not an implementation detail.
+- **Healthcare intake** — symptom triage → nurse line → scheduling, with a hard stop at anything
+  clinical. Each stage has different tools and, critically, different authority.
+- **Order support** — order status → returns → refunds → human, each stage owning its own systems.
+- **Recruiting screens** — application intake → skills screen → scheduling, passing accumulated
+  notes forward at each hop.
+
 ## How it works
 1. Each stage is a system prompt + its own tools + **an allow-list of legal successors** (`next`).
 2. The handoff decision is a tool call whose `to` parameter is an **enum of only the legal next
