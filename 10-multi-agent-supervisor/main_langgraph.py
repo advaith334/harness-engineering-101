@@ -14,6 +14,8 @@ main.py is usually the better bet. Reach for this when the requirement mentions
 durability, resumability, or approvals.
 
 NOTE: `create_react_agent` is deprecated as of LangChain 1.0 — use `create_agent`.
+The keyword is `system_prompt=`, not `prompt=`; the latter raises TypeError.
+Verified against langchain 1.4.0 / langgraph 1.2.11 / langchain-mistralai 1.1.6.
 """
 
 import os
@@ -39,8 +41,8 @@ def query_crm(company: str) -> str:
 
 
 # Each worker is an agent with its own narrow tool set — same principle as main.py.
-docs_agent = create_agent(llm, tools=[search_docs], prompt="You answer from product docs.")
-account_agent = create_agent(llm, tools=[query_crm], prompt="You report account facts.")
+docs_agent = create_agent(llm, tools=[search_docs], system_prompt="You answer from product docs.")
+account_agent = create_agent(llm, tools=[query_crm], system_prompt="You report account facts.")
 
 
 # The supervisor exposes each worker as a tool. Calling a worker == delegating.
@@ -61,7 +63,7 @@ def ask_account(question: str) -> str:
 supervisor = create_agent(
     llm,
     tools=[ask_docs, ask_account],
-    prompt="You are a supervisor. Delegate to specialists, then synthesize their answers.",
+    system_prompt="You are a supervisor. Delegate to specialists, then synthesize their answers.",
     checkpointer=InMemorySaver(),  # swap for SqliteSaver/PostgresSaver to survive restarts
 )
 
