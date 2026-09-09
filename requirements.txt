@@ -1,0 +1,12 @@
+# Core — this is all you need for every main.py in this repo.
+mistralai>=2.9.0
+
+# --- Optional extras (only for the *_langgraph.py / *_crewai.py / *_pydantic_ai.py variants) ---
+# Nothing below is required to run any main.py. Install only what you reach for.
+#
+# mcp                      # MCP client transport, needed by 14-mcp-client/main.py
+# langchain>=1.0           # create_agent (replaces the deprecated create_react_agent)
+# langgraph>=1.0           # checkpointers, interrupt(), supervisor graphs
+# langchain-mistralai      # ChatMistralAI
+# pydantic-ai              # typed agents
+# crewai                   # role-based multi-agent crews
