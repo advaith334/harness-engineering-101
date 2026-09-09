@@ -20,7 +20,7 @@ flowchart LR
 Any time the model's answer feeds an `if`, a database write, or another function — extraction,
 classification, form filling, "turn this email into a record." **Also a sub-component of almost
 every other topology here**: routers classify with it, planners emit plans with it, judges emit
-scores with it. If you only memorize one thing, memorize this.
+scores with it. If you internalize one pattern from this repo, make it this one.
 
 Trigger phrases: *"extract"*, *"parse"*, *"classify into"*, *"turn X into a record/row/ticket"*.
 

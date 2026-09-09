@@ -20,7 +20,7 @@ def chat(prompt: str, system: str | None = None, **kw) -> str:
     return client.chat.complete(model=MODEL, messages=msgs, **kw).choices[0].message.content
 
 
-# Pretend these came off disk. In the interview: glob a directory.
+# Pretend these came off disk. In practice: glob a directory.
 REVIEWS = [
     "Setup took 4 hours because the docs skip the DNS step. Product itself is great once running.",
     "Support answered in 12 minutes on a Sunday. Genuinely impressed. Pricing is steep though.",

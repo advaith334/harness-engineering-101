@@ -50,7 +50,7 @@ asked, and pair it with the autonomy modes below.
    exception's `to_dict()` is a serializable one. In production the pause is a Slack message and the
    resume happens in a different process an hour later.
 
-## The autonomy ladder (name these in the presentation)
+## The autonomy ladder
 | Mode | Who acts | Use when |
 |---|---|---|
 | **Copilot / suggest-and-approve** | Human executes every action | High stakes, low volume, no track record yet |

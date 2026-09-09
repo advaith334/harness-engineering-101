@@ -4,7 +4,7 @@
 State that survives across turns or sessions. Orthogonal to every other topology — you bolt memory
 onto a chain, an agent, or a multi-agent system without changing its shape.
 
-Three layers, and the interview point is knowing they're **different tools, not alternatives**:
+Three layers, and the thing to understand is that they're **different tools, not alternatives**:
 
 | Layer | What it holds | Fidelity | Ceiling |
 |---|---|---|---|
@@ -42,7 +42,7 @@ Trigger phrases: *"remembers the user"*, *"across sessions"*, *"personalized"*, 
    decisions, preferences; drop pleasantries.
 3. **Recall** from long-term by embedding the incoming message and retrieving top-k facts.
    *This is literally [05-rag-naive](../05-rag-naive/) pointed at the agent's own history* — same code,
-   different data. Say that out loud.
+   different data.
 4. **Assemble**: system prompt + summary + recalled facts + verbatim buffer + new message.
 
 Note that `build_context()` is where all the engineering lives. Memory isn't a store; it's a

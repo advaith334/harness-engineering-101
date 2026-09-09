@@ -9,9 +9,9 @@ What the framework buys you over main.py:
   - a real graph you can visualise
 
 What it costs you: a state schema to get right, a dependency tree, and an abstraction
-between you and the message list when something goes wrong. For a 40-minute build,
-main.py is usually the better bet. Reach for this when the ask mentions durability,
-resumability, or approvals.
+between you and the message list when something goes wrong. For a quick build,
+main.py is usually the better bet. Reach for this when the requirement mentions
+durability, resumability, or approvals.
 
 NOTE: `create_react_agent` is deprecated as of LangChain 1.0 — use `create_agent`.
 """

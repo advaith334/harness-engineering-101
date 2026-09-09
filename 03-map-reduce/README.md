@@ -45,7 +45,7 @@ N gets large.
 
 ## Cheaper alternative worth naming
 If the map step is pure classification, `client.classifiers.classify()` does it without a generative
-call at all — much faster and cheaper. Mention this out loud; it shows you're costing the design.
+call at all — much faster and cheaper. Worth checking before you reach for a generative call.
 
 ## Composes with
 [02-prompt-chaining](../02-prompt-chaining/) (map-reduce as one step of a chain);

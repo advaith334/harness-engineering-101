@@ -17,7 +17,7 @@ MODEL = "mistral-medium-latest"
 EMBED_MODEL = "mistral-embed"
 
 
-# --- The "corpus". In the interview: read files, split on paragraphs. --------
+# --- The "corpus". In practice: read files, split on paragraphs. -------------
 
 DOCS = [
     "Refunds: customers on monthly plans may request a refund within 14 days of a charge. "
