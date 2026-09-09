@@ -67,6 +67,11 @@ python 08-react-tools/main.py
 | [16](./16-human-in-the-loop/) | **Human-in-the-loop** | Gate on side effects, not on intelligence. Reads run; writes ask |
 | [17](./17-mistral-agents-api/) | **Mistral Agents API** | The first-party stack: hosted RAG, server-side memory, hosted tools, handoffs |
 
+### A full system, not a single-file example
+| # | Topology | One line |
+|---|---|---|
+| [22](./22-production-rag/) | **Production RAG on Neon** | Ingestion, structure-aware chunking, one Postgres for vectors *and* relational data, a 4-stage retrieval funnel, planner + parallel retrieval + eval. **Has real dependencies and a database** — deliberately, to show what the toy examples leave out |
+
 Also: **[FRAMEWORKS.md](./FRAMEWORKS.md)** — LangGraph, CrewAI, Pydantic AI and the 2026 landscape,
 with a decision rule for when each one earns its place.
 
@@ -96,6 +101,7 @@ Read the requirement, find the row, start there.
 | "Make it production quality" | [11](./11-self-refine-critic/) | — |
 | "How do you know it works?" | [12](./12-judge-and-guardrails/) | Say "offline judge over a fixed eval set" |
 | "Build it on Mistral, fast" | [17](./17-mistral-agents-api/) | — |
+| "A real RAG system over our actual corpus" | [05](./05-rag-naive/) to prove the shape | [22](./22-production-rag/) once chunking, filtering and eval matter |
 
 ## Picking a multi-agent shape
 

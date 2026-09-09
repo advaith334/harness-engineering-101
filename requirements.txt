@@ -1,4 +1,5 @@
-# Core — this is all you need for every main.py in this repo.
+# Core — this is all you need for every main.py in folders 01-21.
+# (22-production-rag is the exception and carries its own requirements.txt.)
 mistralai>=2.9.0
 
 # --- Optional extras (only for the *_langgraph.py / *_crewai.py / *_pydantic_ai.py variants) ---
