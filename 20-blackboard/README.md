@@ -41,6 +41,16 @@ agent writing to a plan file: **working memory, made shared**.
 Trigger phrases: *"agents collaborating on a document"*, *"build up an analysis"*, *"it runs for a
 while"*, *"resumable"*, *"shared context between agents"*.
 
+**Grounded examples**
+- **Long-running research reports** — sections accumulate on the board over minutes or hours, and
+  the run survives a restart because the board is just data.
+- **RFP and proposal generation** — a compliance contributor, a pricing contributor and a technical
+  contributor all write into one document, in whatever order their inputs become available.
+- **Incident postmortems** — timeline, impact, root cause and action items assembled by different
+  agents as the underlying data arrives.
+- **Agent scratchpad files in coding tools** — a `PLAN.md` or todo list the agent reads and updates
+  as it works is the single-agent form of exactly this, and it's why long tasks stay coherent.
+
 ## How it works
 1. The **board** is a dict (in production: a Postgres row, a JSON file, a Redis hash). Durable and
    inspectable is the whole requirement.

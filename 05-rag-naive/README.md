@@ -28,6 +28,15 @@ escalate to [06](../06-rag-advanced/) once you have an eval showing where it fai
 Trigger phrases: *"over our docs/wiki/tickets"*, *"a chatbot for our knowledge base"*,
 *"it needs to know about our product"*, *"answer with citations"*.
 
+**Grounded examples**
+- **Help-centre deflection** — a widget answering "how do I rotate an API key?" from published
+  docs, with a link to the article it used. The most common LLM feature shipped anywhere.
+- **Internal HR assistant** — "how much parental leave do I get?" over a benefits handbook nobody
+  reads. High value, small corpus, no agent needed.
+- **Developer portal search** (Stripe, Twilio, AWS-style docs sites) — semantic search over
+  reference documentation, replacing keyword search that never matched how people ask.
+- **Sales enablement** — "what do we say about SOC 2?" over battlecards and past RFP answers.
+
 ## How it works
 1. **Index** — embed every chunk once, in a single batched call. Keep `(text, vector)` pairs.
 2. **Retrieve** — embed the query, cosine against every vector, take top-k.

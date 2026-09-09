@@ -25,6 +25,17 @@ beats a model critic every time it's available.
 Trigger phrases: *"make it good"*, *"production quality"*, *"it needs to pass review"*,
 *"iterate until"*, *"generate code that actually runs"*.
 
+**Grounded examples**
+- **Code generation where tests are the critic** — generate, run the suite, feed failures back,
+  regenerate. This is the strongest form of the pattern because the critic is *deterministic*, and
+  it's how coding agents get from "compiles" to "passes".
+- **SQL generation** — validate against the real schema, or run `EXPLAIN`, then revise. Catches
+  hallucinated column names before a human ever sees the query.
+- **Brand-compliant copy** — marketing teams keep a written voice guideline; that document is
+  literally the rubric the critic scores against.
+- **Structured extraction at high accuracy** — extract, verify each field against the source
+  document, correct the ones that don't check out.
+
 ## How it works
 1. **Generate** a first draft.
 2. **Critique** — separate call, harsh persona, explicit rubric, forbidden from rewriting. Output is

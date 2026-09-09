@@ -41,6 +41,17 @@ flowchart TB
 - You want web search, code execution, or image generation without building any of it.
 - You want versioned agents and a server-side audit trail without building either.
 
+**Grounded examples**
+- **Internal assistant over uploaded PDFs** — drop the policy documents into a library, point an
+  agent at it, ship. No chunking strategy, no vector database to operate, no ingestion pipeline
+  to keep running.
+- **Research assistant with live web access** — `web_search` gives current facts without you
+  running a crawler or paying a search API separately.
+- **Analyst tools that compute** — `code_interpreter` runs the arithmetic in a sandbox, which is
+  how you stop a model doing maths in its head and getting it subtly wrong.
+- **Prototypes that need to survive a restart** — server-side conversations mean the state isn't in
+  your process, so a redeploy doesn't wipe every user's context.
+
 ## When to build it by hand instead
 - **Quality is what's being evaluated.** You can't see retrieval scores, can't change chunking,
   can't rerank. If the eval is "make RAG accurate", own the pipeline ([06](../06-rag-advanced/)).

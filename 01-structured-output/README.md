@@ -24,6 +24,18 @@ scores with it. If you internalize one pattern from this repo, make it this one.
 
 Trigger phrases: *"extract"*, *"parse"*, *"classify into"*, *"turn X into a record/row/ticket"*.
 
+**Grounded examples**
+- **Receipt and invoice capture** (Expensify, Ramp, Brex) — a photo becomes
+  `{merchant, amount, currency, date, category}` and posts straight to a ledger. The row is the
+  product; prose would be useless.
+- **Résumé parsing in an ATS** (Greenhouse, Lever) — free-form CVs become typed candidate records
+  so recruiters can filter by years of experience and skills.
+- **Support ticket triage fields** — every inbound email gets `urgency`, `category`, `sentiment`
+  written to Zendesk, which then fires the existing routing rules. The LLM feeds infrastructure that
+  already exists rather than replacing it.
+- **Log and alert enrichment** — turn a stack trace into `{service, error_class, likely_owner}` and
+  page the right on-call.
+
 ## How it works
 1. Describe the target shape in the system prompt (`main.py`) or as a Pydantic class (`main_typed.py`).
 2. Call with `response_format={"type": "json_object"}` — or `client.chat.parse(response_format=Model)`.

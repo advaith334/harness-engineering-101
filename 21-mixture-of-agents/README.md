@@ -40,6 +40,18 @@ Trigger phrases: *"best possible answer"*, *"we have budget for quality"*, *"com
 **When not to:** anything latency-sensitive, anything with a single checkable answer (use
 self-consistency — cheaper), anything where a verifier exists (use best-of-N — simpler).
 
+**Grounded examples**
+- **Ensembling across providers** — the same question to Mistral, an open-weights model and a
+  frontier model, then aggregated. Reliably beats any one of them, which is the published result
+  the pattern is named for.
+- **High-stakes written deliverables** — a board memo, a strategy document, an architecture
+  recommendation. Somewhere the output is read by many people and 5× the inference cost is noise
+  against the time it saves.
+- **Batch content generation** — product descriptions or landing-page copy generated offline, where
+  latency is irrelevant and quality per item compounds.
+- **Synthetic data and evaluation sets** — diverse proposers give you variety that repeated sampling
+  from one model doesn't.
+
 ## How it distinguishes itself from its neighbours
 | Pattern | Interaction | Selection | Use when |
 |---|---|---|---|

@@ -25,6 +25,17 @@ runs**: a human approves it, you cost it, you log it, you edit it.
 Trigger phrases: *"multi-step"*, *"research and then report"*, *"a workflow that"*, *"show me what
 it's going to do first"*, *"migrate/audit/reconcile"*.
 
+**Grounded examples**
+- **Coding agents that show a plan first** (Copilot Workspace, Devin-style tools) — the file-by-file
+  plan is rendered for the human to edit *before* any code is written. The plan being a visible
+  artifact is the product feature.
+- **Deep-research report generation** — draft the outline, research each section against the
+  scratchpad, then compose. Users can redirect the outline before you spend the research budget.
+- **Data migrations** — enumerate tables, map schemas, transform, verify. Long-horizon and
+  order-dependent, where a pure ReAct agent forgets step 1 by step 9.
+- **Marketing campaign builds** — plan the assets, generate each, assemble. Cost is knowable from
+  the plan, which matters when generation isn't cheap.
+
 ## How it works
 1. **Plan** — one call, JSON out, constrained to the available tools. A list of 2–6 concrete steps.
 2. *(Natural approval gate here — see [16](../16-human-in-the-loop/).)*

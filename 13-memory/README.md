@@ -35,6 +35,17 @@ me last week".
 Trigger phrases: *"remembers the user"*, *"across sessions"*, *"personalized"*, *"long conversation"*,
 *"it forgets what I said"*.
 
+**Grounded examples**
+- **Assistant memory features** (ChatGPT and Claude both ship one) — "remember I prefer Python" set
+  once and honoured months later. That's the long-term vector layer, not the conversation buffer.
+- **Long coding or writing sessions** — the buffer fills, older turns get summarized, and the
+  session keeps going. Without the summary layer the assistant forgets the requirements it agreed
+  to an hour ago.
+- **Tutoring and learning apps** (Duolingo-style) — what the learner has mastered and what they keep
+  getting wrong has to survive between sessions or personalization is impossible.
+- **Sales and CS assistants** — account context recalled between calls, so the rep doesn't reopen
+  every conversation from zero.
+
 ## How it works
 1. Append every exchange to the **buffer**.
 2. When the buffer exceeds `BUFFER_TURNS`, **compress** the overflow into a running summary — folding

@@ -8,8 +8,9 @@ who holds control of the loop. This repo is a catalogue of those scaffolds — e
 Python file against the Mistral API that you can read in 30 seconds and adapt.
 
 Every folder has a raw-SDK `main.py` that runs with nothing but an API key, plus a README covering
-*when to reach for it*, *how it works*, and *how it fails*. Framework versions appear as a second
-file only where they earn their keep.
+*when to reach for it* (with grounded examples of systems that actually work this way), *how it
+works*, and *how it fails*. Framework versions appear as a second file only where they earn their
+keep.
 
 ```bash
 pip install -r requirements.txt

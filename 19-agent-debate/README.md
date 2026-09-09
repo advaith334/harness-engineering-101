@@ -53,6 +53,15 @@ perspectives"*, *"should we"*.
 **When not to:** anything with a checkable answer. If a test, a rubric, or a retrieval can settle it,
 debate is an expensive way to get a worse result. Use [11](../11-self-refine-critic/) instead.
 
+**Grounded examples**
+- **Architecture decision records** — generate the case for and against before a human writes the
+  ADR. The value is the objections nobody on the team raised, not the verdict.
+- **Investment and credit memos** — an explicit bull case and bear case, then an adjudicated
+  recommendation. This mirrors how the human process already works, which makes the output legible.
+- **Red-teaming a plan or policy** — one agent proposes, another attacks, before it reaches review.
+- **Content moderation edge cases** — arguing both readings of an ambiguous post surfaces the
+  reasoning a single classification call hides.
+
 ## How it works
 1. Each agent gets a role prompt that **forbids conceding** (adversarial) or **forbids repeating
    others** (round table). Without those constraints both agents converge to the same bland

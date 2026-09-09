@@ -28,6 +28,18 @@ When naive RAG demonstrably fails because one retrieval isn't enough:
 Trigger phrases: *"it should figure out where to look"*, *"across our different systems"*,
 *"follow-up questions"*, *"sometimes it needs to search twice"*.
 
+**Grounded examples**
+- **Deep-research assistants** (OpenAI, Google and Perplexity all ship one) — the visible behaviour
+  is issuing several searches, reading results, then searching again with better terms. That loop
+  is this folder.
+- **Customer support with two sources of truth** — "does our refund policy allow this, and what did
+  we already promise this customer?" needs the policy KB *and* the ticket history. One retrieval
+  answers half the question.
+- **Security and SRE assistants** — a question that spans runbooks, past incidents and current
+  alerts, where which source matters isn't knowable in advance.
+- **Compliance Q&A** — "are we compliant with X?" requires pulling the regulation *and* the
+  internal control, then comparing them.
+
 ## How it works
 1. Wrap [05](../05-rag-naive/)'s `search()` in a tool schema. `collection` is an `enum` — constrain
    the space rather than hoping.

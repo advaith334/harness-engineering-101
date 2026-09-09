@@ -38,6 +38,17 @@ Any time the agent can spend money, message a customer, or delete something. Als
 *"how would you actually deploy this?"* — bring up the approval tier for write tools before you're
 asked, and pair it with the autonomy modes below.
 
+**Grounded examples**
+- **Coding agents asking before destructive commands** — Claude Code and Cursor run reads freely but
+  prompt before `git push`, `rm -rf`, or anything that leaves the machine. The permission model *is*
+  the `AUTONOMY` dict in `main.py`.
+- **Refunds and credits above a threshold** — the agent decides and drafts; a supervisor approves
+  anything over, say, €100. Below it, the agent just acts. That's supervised autonomy.
+- **Outbound email and social posting** — drafted automatically, sent only on approval, because
+  "unsend" doesn't exist.
+- **Infrastructure changes** — an agent can open the pull request; a human still merges it. The PR
+  is the approval checkpoint, and it's already serializable, which is why the pattern works.
+
 ## How it works
 1. Classify every tool in an **allow-list dict in code**. Not in the prompt — a prompt can be
    talked out of its rules; a dict lookup cannot.

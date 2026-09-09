@@ -25,6 +25,17 @@ Whenever the ask contains a verb with a consequence: *"book it"*, *"send it"*, *
 *"sync X to Y"*, *"file the expense"*. This is the topology that makes an agent worth paying for, and
 it's the one where the engineering stops being about prompts.
 
+**Grounded examples**
+- **Scheduling assistants** — read the calendar, find a slot, create the event, email the invite.
+  Exactly the demo in `main.py`, and the reason idempotency matters: a retried booking is a
+  double-booking.
+- **Expense automation** — receipt in, expense created in the finance system, approver notified.
+  Two writes to two systems, which is where partial completion becomes a real problem.
+- **CRM hygiene agents** — enrich a lead from an external data API, dedupe, update Salesforce.
+  Pagination is not optional when the account has 4,000 contacts.
+- **On-call automation** — read the alert, check the runbook, restart the service, post to the
+  incident channel. Every one of those verbs is a write.
+
 ## How it works
 1. **Read before you write** — list the calendar before proposing a slot.
 2. **Paginate fully** — the `list_events` tool returns `next_page`, and the tool description tells

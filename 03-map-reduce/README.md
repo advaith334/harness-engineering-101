@@ -30,6 +30,16 @@ per-chunk work is independent. This is the reflex answer for "summarize these 20
 
 Trigger phrases: *"across all of these"*, *"for each file/review/ticket"*, *"summarize this 300-page"*.
 
+**Grounded examples**
+- **Earnings-call and 10-K summarization** — a 300-page filing chunked, each section summarized in
+  parallel, then rolled into a one-page brief. Standard in finance research tooling.
+- **App-store and NPS review mining** — 50k reviews in, a ranked list of themes with counts out.
+  The demo in `main.py` is this at toy scale.
+- **Codebase-wide analysis** — "which files touch PII?" run per file, aggregated into a report.
+  Repo-wide linting and audit tools work this way because no context window holds a monorepo.
+- **eDiscovery and document review** — every document in a legal production gets the same
+  relevance prompt, and the reduce step produces the privilege log.
+
 ## How it works
 1. Chunk the input (here: one review each; in practice, token-bounded slices with overlap).
 2. **Map** — one narrow call per chunk, run through a `ThreadPoolExecutor`. The work is

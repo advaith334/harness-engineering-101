@@ -33,6 +33,16 @@ sequenceDiagram
 **When not to:** a single function you own. Wrapping `get_weather()` in an MCP server buys you
 a subprocess and a handshake for nothing. MCP is an *integration boundary*, not a tool abstraction.
 
+**Grounded examples**
+- **Claude Desktop and Claude Code connectors** — GitHub, Postgres, Slack, Sentry and Google Drive
+  are all MCP servers someone else maintains. Installing one is configuration, not code.
+- **Internal platform teams** — publish one MCP server for the company's data warehouse, and every
+  agent any team builds gets access without a second integration.
+- **IDE assistants** — repository, terminal and database access exposed through a common protocol
+  instead of bespoke glue per editor.
+- **Vendor-shipped servers** — a SaaS product ships an MCP server so its customers' agents can use
+  it, the same way it would ship an SDK.
+
 ## How it works
 1. **Transport** — the server runs as a separate process (stdio) or over HTTP/SSE.
 2. **Discover** — `tools/list` returns each tool's name, description, and `inputSchema`.
